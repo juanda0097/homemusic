@@ -4,8 +4,7 @@
         <thead>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Tipo</th>
-            <th>Acciones</th>
+            
         </thead>
         <tbody>
         @if($canciones->count())
