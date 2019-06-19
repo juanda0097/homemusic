@@ -26,3 +26,4 @@ Route::resource('/Medial', 'MedialController');
 Route::resource('/Author', 'AuthorController');
 Route::resource('/Song', 'SongController');
 Route::get('/mostrarcanciones','SongController@mostrar_all_pdf');
+Route::get('/pdfcancionmedio','SongController@mostrar_all_pdf1');

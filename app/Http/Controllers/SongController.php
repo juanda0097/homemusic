@@ -6,6 +6,7 @@ use App\Models\Song;
 use Illuminate\Http\Request;
 use App\Models\Gender;
 use App\Models\Interpreter;
+use Illuminate\Support\Facades\DB;
 
 class SongController extends Controller
 {
@@ -26,6 +27,19 @@ class SongController extends Controller
        $pdf=\PDF::loadView('song.mostrarpdf',['canciones'=>$canciones]);
        return $pdf->stream('canciones');
     }
+    public function mostrar_all_pdf1()
+    {
+       $canciones1= DB::table('medials')
+       ->join('medial_songs', 'medials.id', '=', 'medial_songs.medial_id')
+       ->join('songs', 'songs.id', '=', 'medial_songs.song_id')
+       
+       ->select('medials.name','songs.name as nameSong')
+       ->get();
+       $pdf=\App::make('dompdf.wrapper');
+       $pdf=\PDF::loadView('song.mostrarpdf1',['canciones1'=>$canciones1]);
+       return $pdf->stream('canciones1');
+    }
+
 
     /**
      * Show the form for creating a new resource.
