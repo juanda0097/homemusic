@@ -6,6 +6,9 @@
 <div class="col-2">
     <a href="{{route('Author.create')}}" class="btn btn-outline-primary">Nuevo autor</a>
 </div>
+<div class="col-2">
+    <a href="{{ url('pdfautor') }}" class="btn btn-danger">Ver pdf</a>
+</div>
     </div>
     <hr>
     {{$author->render()}}

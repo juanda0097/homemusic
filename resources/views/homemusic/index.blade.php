@@ -6,6 +6,9 @@
 <div class="col-2">
     <a href="{{route('Homemusic.create')}}" class="btn btn-outline-primary">Agregar Casa musical</a>
 </div>
+<div class="col-2">
+    <a href="{{ url('pdfcasamusical') }}" class="btn btn-danger">Ver pdf</a>
+</div>
     </div>
     <hr>
     {{$hmusic->render()}}

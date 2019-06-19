@@ -6,6 +6,9 @@
 <div class="col-2">
     <a href="{{route('Medial.create')}}" class="btn btn-outline-primary">Nuevo medio</a>
 </div>
+<div class="col-2">
+    <a href="{{ url('pdfmedio') }}" class="btn btn-danger">Ver pdf</a>
+</div>
     </div>
     <hr>
     {{$medial->render()}}

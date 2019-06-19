@@ -12,7 +12,7 @@ class CreateAlbumsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    { 
         Schema::create('albums', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');

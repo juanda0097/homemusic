@@ -6,6 +6,9 @@
 <div class="col-2">
     <a href="{{route('Interpreter.create')}}" class="btn btn-outline-primary">Nuevo interprete</a>
 </div>
+<div class="col-2">
+    <a href="{{ url('pdfinterprete') }}" class="btn btn-danger">Ver pdf</a>
+</div>
     </div>
     <hr>
     {{$interpreter->render()}}

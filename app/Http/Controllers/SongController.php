@@ -119,5 +119,35 @@ class SongController extends Controller
        $pdf=\PDF::loadView('song.mostrarpdf1',['canciones1'=>$canciones1]);
        return $pdf->stream('canciones1');
     }
+    public function consulta_3()
+    {
+       $consultapdf3= DB::table('homemusics')
+       ->join('albums', 'homemusics.id', '=', 'albums.homemusic_id')
+       ->join('Album_songs', 'albums.id', '=', 'album_songs.album_id')
+       ->join('songs', 'songs.id', '=', 'album_songs.song_id')
+       
+       ->select('albums.name as nameAlbum','albums.date','homemusics.name as namehome','songs.name as nameSong1','songs.duration')
+       ->get();
+       $pdf=\App::make('dompdf.wrapper');
+       $pdf=\PDF::loadView('pdf.consultapdf3',['consultapdf3'=>$consultapdf3]);
+       return $pdf->stream('consultapdf3');
+    }
+    public function consulta_4()
+    {
+       $consultapdf4= DB::table('authors')
+       ->join('author_songs', 'authors.id', '=', 'author_songs.author_id')
+       ->join('songs', 'author_songs.song_id', '=', 'songs.id')
+       ->join('genders', 'genders.id', '=', 'songs.id')
+       ->join('interpreters', 'songs.id', '=', 'interpreters.id')
+       
+       
+       
+       ->select('songs.name as nameSong4','genders.name as nameGender4','authors.name as nameA','interpreters.name as nameInterpreters')
+       ->get();
+       $pdf=\App::make('dompdf.wrapper');
+       $pdf=\PDF::loadView('pdf.consultapdf4',['consultapdf4'=>$consultapdf4]);
+       return $pdf->stream('consultapdf4');
+    }
+    
 
 }

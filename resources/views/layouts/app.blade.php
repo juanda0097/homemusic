@@ -36,6 +36,29 @@
     <a href="{{ route('Medial.index') }}" class="list-group-item list-group-item-action bg-light">Medios</a>
     <a href="{{ route('Author.index') }}" class="list-group-item list-group-item-action bg-light">Autor</a>
     <a href="{{ route('Song.index') }}" class="list-group-item list-group-item-action bg-light">Canciones</a>
+    <ul>
+        <li>
+            <p class="list-group-item list-group-item-action bg-light">LISTA PDF</p>
+            <ul>
+                <li>
+                    <a href="{{ url('pdfcancionmedio') }}" class="list-group-item list-group-item-action bg-light">Cancion-Medios</a>
+                </li>
+                <li>
+                    <a href="{{ url('pdfconsulta3') }}" class="list-group-item list-group-item-action bg-light">Consulta 3</a>
+                </li>
+                <li>
+                    <a href="{{ url('pdfconsulta4') }}" class="list-group-item list-group-item-action bg-light">Consulta 4</a>
+                </li>
+                <li>
+                    <a href="{{ url('pdfconsulta5') }}" class="list-group-item list-group-item-action bg-light">Consulta 5</a>
+                </li>
+                <li>
+                    <a href="{{ url('pdfconsulta6') }}" class="list-group-item list-group-item-action bg-light">Consulta 6</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    
   </div>
 </div>
 <!-- /#sidebar-wrapper -->

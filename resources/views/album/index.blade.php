@@ -5,6 +5,10 @@
 <div class="row justify-content-between encabezado">
 <div class="col-2">
     <a href="{{route('Album.create')}}" class="btn btn-outline-primary">Agregar nuevo album</a>
+    
+</div>
+<div class="col-2">
+    <a href="{{ url('pdfalbum') }}" class="btn btn-danger">Ver pdf</a>
 </div>
     </div>
     <hr>

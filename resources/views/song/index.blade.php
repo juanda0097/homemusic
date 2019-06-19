@@ -6,6 +6,9 @@
 <div class="col-2">
     <a href="{{route('Song.create')}}" class="btn btn-outline-primary">Nueva cancion</a>
 </div>
+<div class="col-2">
+    <a href="{{ url('pdfcancion') }}" class="btn btn-danger">Ver pdf</a>
+</div>
     </div>
     <hr>
     {{$song->render()}}

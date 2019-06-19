@@ -25,9 +25,9 @@ Route::resource('/Gender', 'GenderController');
 Route::resource('/Medial', 'MedialController');
 Route::resource('/Author', 'AuthorController');
 Route::resource('/Song', 'SongController');
-Route::get('/mostrarcanciones','SongController@mostrar_all_pdf');
+Route::get('/pdfcancion','SongController@mostrar_all_pdf');
 
-Route::get('/pdfcancionmedio','SongController@mostrar_all_pdf1');
+
 
 Route::get('/pdfcasamusical','HomemusicController@mostrar_all_pdf');
 
@@ -40,3 +40,17 @@ Route::get('/pdfgenero','GenderController@mostrar_all_pdf');
 Route::get('/pdfautor','AuthorController@mostrar_all_pdf');
 
 Route::get('/pdfmedio','MedialController@mostrar_all_pdf');
+
+
+/* Consultas con otras tablas PDF */
+
+Route::get('/pdfconsulta3','SongController@consulta_3');
+
+Route::get('/pdfcancionmedio','SongController@mostrar_all_pdf1');
+
+Route::get('/pdfconsulta4','SongController@consulta_4');
+
+Route::get('/pdfconsulta5','SongController@consulta_5');
+
+Route::get('/pdfconsulta6','SongController@consulta_6');
+
