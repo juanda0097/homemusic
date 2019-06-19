@@ -90,4 +90,11 @@ class MedialController extends Controller
         Medial::find($id)->delete();
         return redirect()->route('Medial.index');
     }
+    public function mostrar_all_pdf()
+    {
+       $medialpdf=Medial::all();
+       $pdf=\App::make('dompdf.wrapper');
+       $pdf=\PDF::loadView('pdf.medialpdf',['medialpdf'=>$medialpdf]);
+       return $pdf->stream('medialpdf');
+    }
 }

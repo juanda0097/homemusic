@@ -92,4 +92,11 @@ class AuthorController extends Controller
         Author::find($id)->delete();
         return redirect()->route('Author.index');
     }
+    public function mostrar_all_pdf()
+    {
+       $authorpdf=Author::all();
+       $pdf=\App::make('dompdf.wrapper');
+       $pdf=\PDF::loadView('pdf.authorpdf',['authorpdf'=>$authorpdf]);
+       return $pdf->stream('authorpdf');
+    }
 }

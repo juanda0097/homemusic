@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Homemusic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomemusicController extends Controller
 {
@@ -76,7 +77,7 @@ class HomemusicController extends Controller
         $validatedData = $request->validate([
             'name'=>'required|max:255'
         ]);
-
+ 
         Homemusic::whereId($id)->update($validatedData);
 
         return redirect('/Homemusic')->with('success', 'La casa musical ha sido actualizada');
@@ -92,6 +93,13 @@ class HomemusicController extends Controller
     {
         Homemusic::find($id)->delete();
         return redirect()->route('Homemusic.index');
+    }
+    public function mostrar_all_pdf()
+    {
+       $hmusicpdf=Homemusic::all();
+       $pdf=\App::make('dompdf.wrapper');
+       $pdf=\PDF::loadView('pdf.homemusicpdf',['hmusicpdf'=>$hmusicpdf]);
+       return $pdf->stream('hmusicpdf');
     }
 }
  

@@ -93,4 +93,11 @@ class InterpreterController extends Controller
         Interpreter::find($id)->delete();
         return redirect()->route('Interpreter.index');
     }
+    public function mostrar_all_pdf()
+    {
+       $interpreterpdf=Interpreter::all();
+       $pdf=\App::make('dompdf.wrapper');
+       $pdf=\PDF::loadView('pdf.interpreterpdf',['interpreterpdf'=>$interpreterpdf]);
+       return $pdf->stream('canciinterpreterpdfones');
+    }
 }

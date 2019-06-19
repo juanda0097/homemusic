@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Album;
 use Illuminate\Http\Request;
 use App\Models\HomeMusic;
+use Illuminate\Support\Facades\DB;
 
 class AlbumController extends Controller
 {
@@ -96,5 +97,12 @@ class AlbumController extends Controller
     {
         Album::find($id)->delete();
         return redirect()->route('Album.index');
+    }
+    public function mostrar_all_pdf()
+    {
+       $albumpdf=Album::all();
+       $pdf=\App::make('dompdf.wrapper');
+       $pdf=\PDF::loadView('pdf.albumpdf',['albumpdf'=>$albumpdf]);
+       return $pdf->stream('albumpdf');
     }
 }

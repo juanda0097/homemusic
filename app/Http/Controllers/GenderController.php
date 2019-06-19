@@ -92,4 +92,11 @@ class GenderController extends Controller
         Gender::find($id)->delete();
         return redirect()->route('Gender.index');
     }
+    public function mostrar_all_pdf()
+    {
+       $genderpdf=Gender::all();
+       $pdf=\App::make('dompdf.wrapper');
+       $pdf=\PDF::loadView('pdf.genderpdf',['genderpdf'=>$genderpdf]);
+       return $pdf->stream('genderpdf');
+    }
 }
